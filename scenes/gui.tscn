@@ -1,0 +1,158 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/gui.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/size18.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0.74902, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 0.74902, 0, 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 99.848, 2.61513 )
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 640.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 147.0
+margin_bottom = 40.0
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+margin_left = 10.0
+margin_right = 137.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+margin_top = 6.0
+margin_right = 68.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "SCORE:"
+
+[node name="Score" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 72.0
+margin_top = 6.0
+margin_right = 127.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "00000"
+
+[node name="CenterPad" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 151.0
+margin_right = 472.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 476.0
+margin_right = 640.0
+margin_bottom = 40.0
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
+margin_left = 10.0
+margin_right = 154.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+margin_top = 6.0
+margin_right = 100.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "TIME LEFT:"
+
+[node name="TimeLeft" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+margin_left = 104.0
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "30"
+
+[node name="ColorRect" type="ReferenceRect" parent="VBoxContainer"]
+margin_top = 44.0
+margin_right = 640.0
+margin_bottom = 436.0
+rect_min_size = Vector2( 638, 0 )
+size_flags_vertical = 3
+border_color = Color( 1, 0.74902, 0, 1 )
+border_width = 2.0
+editor_only = false
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 440.0
+margin_right = 640.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 0, 40 )
+custom_constants/margin_right = 5
+custom_constants/margin_top = 10
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 10
+
+[node name="SpeedoMeter" type="ProgressBar" parent="VBoxContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 10.0
+margin_right = 635.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 20 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+max_value = 7.5
+step = 0.0
+percent_visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -2, 240 )
+rotation = 1.5708
+scale = Vector2( 2, 1 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 642, 240 )
+rotation = 1.5708
+scale = Vector2( 2, 1 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 320, 42 )
+scale = Vector2( 3.2, 1 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 320, 438 )
+scale = Vector2( 3.2, 1 )
+shape = SubResource( 3 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/city-of-tomorrow.ogg-57a94a31b64a89db0ebb0d7a0eefe736.oggstr"
+
+[deps]
+
+source_file="res://assets/music/city-of-tomorrow.ogg"
+dest_files=[ "res://.import/city-of-tomorrow.ogg-57a94a31b64a89db0ebb0d7a0eefe736.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

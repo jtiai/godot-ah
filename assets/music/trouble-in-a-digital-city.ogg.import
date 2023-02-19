@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/trouble-in-a-digital-city.ogg-9b0e12849853720d90496bfe903bc86b.oggstr"
+
+[deps]
+
+source_file="res://assets/music/trouble-in-a-digital-city.ogg"
+dest_files=[ "res://.import/trouble-in-a-digital-city.ogg-9b0e12849853720d90496bfe903bc86b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

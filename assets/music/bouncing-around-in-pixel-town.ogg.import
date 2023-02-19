@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bouncing-around-in-pixel-town.ogg-98a84926eb1818867bf64e4e3a491cae.oggstr"
+
+[deps]
+
+source_file="res://assets/music/bouncing-around-in-pixel-town.ogg"
+dest_files=[ "res://.import/bouncing-around-in-pixel-town.ogg-98a84926eb1818867bf64e4e3a491cae.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

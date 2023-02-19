@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pelican-bay-tiki-party.ogg-c7a0cbde36ab29a815fc8c4af2c8d897.oggstr"
+
+[deps]
+
+source_file="res://assets/music/pelican-bay-tiki-party.ogg"
+dest_files=[ "res://.import/pelican-bay-tiki-party.ogg-c7a0cbde36ab29a815fc8c4af2c8d897.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
