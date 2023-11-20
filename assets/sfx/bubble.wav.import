@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/bubble.wav-38f73c84d1171637f02f61ce4674f068.sample"
+type="AudioStreamWAV"
+uid="uid://bqnp8fvt8j4vd"
+path="res://.godot/imported/bubble.wav-38f73c84d1171637f02f61ce4674f068.sample"
 
 [deps]
 
 source_file="res://assets/sfx/bubble.wav"
-dest_files=[ "res://.import/bubble.wav-38f73c84d1171637f02f61ce4674f068.sample" ]
+dest_files=["res://.godot/imported/bubble.wav-38f73c84d1171637f02f61ce4674f068.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/pelican-bay-tiki-party.ogg-c7a0cbde36ab29a815fc8c4af2c8d897.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://delghuj8kiaru"
+path="res://.godot/imported/pelican-bay-tiki-party.ogg-c7a0cbde36ab29a815fc8c4af2c8d897.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/music/pelican-bay-tiki-party.ogg"
-dest_files=[ "res://.import/pelican-bay-tiki-party.ogg-c7a0cbde36ab29a815fc8c4af2c8d897.oggstr" ]
+dest_files=["res://.godot/imported/pelican-bay-tiki-party.ogg-c7a0cbde36ab29a815fc8c4af2c8d897.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

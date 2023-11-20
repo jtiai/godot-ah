@@ -1,26 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://cctveel4abd7r"]
 
-[ext_resource path="res://assets/fonts/size40.tres" type="DynamicFont" id=1]
-[ext_resource path="res://scripts/highscore.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://scripts/highscore.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://ddtl24sbjajrt" path="res://assets/fonts/notosanshk-black.otf" id="2_h5i2o"]
 
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.619289 )
-colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1 )
+[sub_resource type="Gradient" id="1"]
+offsets = PackedFloat32Array(0, 0.619289)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture2D" id="2"]
+gradient = SubResource("1")
 width = 256
 
 [node name="Highscore" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="MainLabel" type="Label" parent="."]
-margin_left = 40.0
-margin_top = 480.0
-margin_right = 600.0
-margin_bottom = 2554.0
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
+offset_left = 70.0
+offset_top = 480.0
+offset_right = 570.0
+offset_bottom = 2960.0
+theme_override_colors/font_color = Color(1, 0.74902, 0, 1)
+theme_override_fonts/font = ExtResource("2_h5i2o")
+theme_override_font_sizes/font_size = 40
 text = "00001 Janze
 00002 Beelzebub
 3
@@ -63,24 +64,16 @@ text = "00001 Janze
 20"
 clip_text = true
 
-[node name="Tween" type="Tween" parent="."]
-
-[node name="Tween2" type="Tween" parent="."]
-
-[node name="BottomFader" type="Sprite" parent="."]
-position = Vector2( 645.528, 297.127 )
+[node name="BottomFader" type="Sprite2D" parent="."]
+position = Vector2(658.594, 297.127)
 rotation = 1.5708
-scale = Vector2( 0.713131, 646.731 )
-texture = SubResource( 2 )
+scale = Vector2(0.790514, 12.2042)
+texture = SubResource("2")
 centered = false
 
-[node name="Top fader" type="Sprite" parent="."]
-position = Vector2( -1.40155, 181.644 )
+[node name="Top fader" type="Sprite2D" parent="."]
+position = Vector2(-1.40155, 181.644)
 rotation = 4.71239
-scale = Vector2( 0.713131, 646.731 )
-texture = SubResource( 2 )
+scale = Vector2(0.713, 12)
+texture = SubResource("2")
 centered = false
-
-[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
-[connection signal="tween_completed" from="Tween2" to="." method="_on_Tween_tween_completed"]
-[connection signal="tween_completed" from="Tween2" to="." method="_on_Tween2_tween_completed"]

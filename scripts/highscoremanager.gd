@@ -7,15 +7,16 @@ var latest_score = -1
 
 
 func _ready():
-	var file = File.new()
-	if not file.file_exists(HIGHSCORE_FILE):
+	if not FileAccess.file_exists(HIGHSCORE_FILE):
 		create_highscores()
 
-	file.open(HIGHSCORE_FILE, File.READ)
-	highscores = parse_json(file.get_as_text())
-	file.close()
+	var file = FileAccess.open(HIGHSCORE_FILE, FileAccess.READ)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(file.get_as_text())
+	highscores = test_json_conv.get_data()
+	file = null
 
-		
+
 func create_highscores():
 	for i in 20:
 		highscores.append([0, "Janze"])
@@ -23,11 +24,10 @@ func create_highscores():
 
 
 func save_highscores():
-	var file = File.new()
-	file.open(HIGHSCORE_FILE, File.WRITE)
-	file.store_string(to_json(highscores))
-	file.close()
-	
+	var file = FileAccess.open(HIGHSCORE_FILE, FileAccess.WRITE)
+	file.store_string(JSON.new().stringify(highscores))
+	file = null;
+
 
 func is_highscore(user_score) -> bool:
 	for score_and_name in highscores:
@@ -38,11 +38,11 @@ func is_highscore(user_score) -> bool:
 	return false
 
 
-func set_highscore(user_score, name):
+func set_highscore(player_score, player_name):
 	for i in highscores.size():
 		var score = highscores[i][0]
-		if score < user_score:
-			highscores.insert(i, [user_score, name])
+		if score < player_score:
+			highscores.insert(i, [player_score, player_name])
 			highscores.pop_back()  # Remove last one
 			save_highscores()
 			break

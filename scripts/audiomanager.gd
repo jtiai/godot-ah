@@ -6,7 +6,7 @@ var bus = "master"
 var available = []
 var queue = []
 
-var music_player 
+var music_player
 var playlist = []
 var played = []
 
@@ -15,7 +15,7 @@ func _ready():
 
 	music_player = AudioStreamPlayer.new()
 	add_child(music_player)
-	music_player.connect("finished", self, "_on_music_finished", [music_player])
+	music_player.connect("finished",Callable(self,"_on_music_finished").bind(music_player))
 	music_player.bus = bus
 
 	for i in num_channels:
@@ -23,8 +23,8 @@ func _ready():
 		add_child(sound_player)
 		available.append(sound_player)
 		sound_player.bus = bus
-		var _val = sound_player.connect("finished", self, "_on_stream_finished", [sound_player])
-	
+		var _val = sound_player.connect("finished",Callable(self,"_on_stream_finished").bind(sound_player))
+
 
 func _on_music_finished(_stream):
 	var previous_song = playlist.pop_back()
@@ -45,7 +45,7 @@ func _on_stream_finished(stream):
 
 
 func play_sound(sound_path):
-	if not available.empty():
+	if not available.is_empty():
 		var p = available.pop_front()
 		p.stream = load(sound_path)
 		p.play()
@@ -83,7 +83,7 @@ func _on_songs_played():
 
 
 func _process(_delta):
-	if not queue.empty() and not available.empty():
+	if not queue.is_empty() and not available.is_empty():
 		var p = available.pop_front()
 		var s = queue.pop_front()
 		p.stream = load(s)

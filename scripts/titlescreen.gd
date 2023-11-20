@@ -1,12 +1,6 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-onready var tween = $Tween
-onready var fader = $Fader
+@onready var fader = $Fader
 
 
 func _ready():
@@ -19,12 +13,16 @@ func _ready():
 	AudioManager.start_music()
 
 	fader.color = Color(0, 0, 0, 1)
-	tween.interpolate_property(fader, 'color', Color(0, 0, 0, 1), Color(0, 0, 0, 0), 5.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 2.0)
-	tween.start()
+	var tween = get_tree().create_tween()
+	tween.tween_interval(2.0)
+	tween.tween_property(fader, 'color', Color(0, 0, 0, 0), 5.0)
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.play()
 
 
 func _input(event):
 	if event.is_action_pressed("action_click"):
-		var _val = get_tree().change_scene("res://scenes/countdown.tscn")
+		var _val = get_tree().change_scene_to_file("res://scenes/countdown.tscn")
 	elif event.is_action_pressed("action_quit"):
 		get_tree().quit()

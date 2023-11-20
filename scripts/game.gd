@@ -4,12 +4,12 @@ const NORMAL_BUBBLE = preload("res://scenes/normal-bubble.tscn")
 const SPECIAL_BUBBLE = preload("res://scenes/special-bubble.tscn")
 const TIMER_SOUND = "res://assets/sfx/time-end-alert.wav"
 
-onready var bubbles = $Bubbles
-onready var wormie = $Wormie
-onready var speedometer = $CanvasLayer/GUI/VBoxContainer/MarginContainer/SpeedoMeter
-onready var score_txt = $CanvasLayer/GUI/VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer/Score
-onready var timer_txt = $CanvasLayer/GUI/VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer/TimeLeft
-onready var gametimer = $GameTimer
+@onready var bubbles = $Bubbles
+@onready var wormie = $Wormie
+@onready var speedometer = $CanvasLayer/GUI/MarginContainer/VBoxContainer/MarginContainer/SpeedoMeter
+@onready var score_txt = $CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer/Score
+@onready var timer_txt = $CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer/TimeLeft
+@onready var gametimer = $GameTimer
 
 var current_song = 0
 var rng = RandomNumberGenerator.new()
@@ -22,9 +22,9 @@ func _ready():
 	rng.randomize()
 	current_time = round(gametimer.time_left)
 	var next_bubble_time = rng.randf_range(1.5, 5.0)  # First bubble
-	yield(get_tree().create_timer(next_bubble_time), "timeout")
+	await get_tree().create_timer(next_bubble_time).timeout
 	create_bubble()
-			
+
 
 func _process(_delta):
 	speedometer.value = wormie.movement_speed
@@ -53,16 +53,16 @@ func create_bubble():
 
 	var bubble_instance = null
 	if rng.randi_range(0, 10) == 0:
-		bubble_instance = SPECIAL_BUBBLE.instance()
+		bubble_instance = SPECIAL_BUBBLE.instantiate()
 	else:
-		bubble_instance = NORMAL_BUBBLE.instance()
+		bubble_instance = NORMAL_BUBBLE.instantiate()
 	bubble_instance.position = new_bubble_pos
 
 	bubbles.add_child(bubble_instance)
-	bubble_instance.connect("bubble_died",bubbles.get_parent(),"_on_bubble_died")
-	bubble_instance.connect("bubble_picked",bubbles.get_parent(),"_on_bubble_picked")
+	bubble_instance.connect("bubble_died",Callable(bubbles.get_parent(),"_on_bubble_died"))
+	bubble_instance.connect("bubble_picked",Callable(bubbles.get_parent(),"_on_bubble_picked"))
 	var next_bubble_time = rng.randf_range(0.5, 2.0)
-	yield(get_tree().create_timer(next_bubble_time), "timeout")
+	await get_tree().create_timer(next_bubble_time).timeout
 	create_bubble()
 
 
@@ -85,4 +85,4 @@ func _on_GameTimer_timeout():
 	# Game over
 	HighscoreManager.latest_score = score
 	wormie.die()
-	var _val = get_tree().change_scene("res://scenes/gameover.tscn")
+	var _val = get_tree().change_scene_to_file("res://scenes/gameover.tscn")

@@ -1,97 +1,76 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://3co3qsacmiuq"]
 
-[ext_resource path="res://assets/fonts/size60.tres" type="DynamicFont" id=1]
-[ext_resource path="res://scripts/gameover.gd" type="Script" id=2]
-[ext_resource path="res://assets/fonts/size40.tres" type="DynamicFont" id=3]
+[ext_resource type="Script" path="res://scripts/gameover.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://ddtl24sbjajrt" path="res://assets/fonts/notosanshk-black.otf" id="2_necc8"]
 
 [node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
 
 [node name="CenterContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
 
 [node name="Label" type="Label" parent="CenterContainer"]
-margin_right = 640.0
-margin_bottom = 300.0
-rect_min_size = Vector2( 0, 300 )
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_necc8")
+theme_override_font_sizes/font_size = 60
 text = "GAME OVER"
-align = 1
-valign = 2
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
-margin_top = 304.0
-margin_right = 640.0
-margin_bottom = 353.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/MarginContainer"]
-margin_right = 640.0
-margin_bottom = 49.0
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = ExtResource( 3 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_necc8")
+theme_override_font_sizes/font_size = 40
 text = "You made a highscore!"
-align = 1
+horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer"]
-margin_top = 357.0
-margin_right = 640.0
-margin_bottom = 416.0
-custom_constants/margin_right = 25
-custom_constants/margin_left = 25
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer2"]
-margin_left = 25.0
-margin_right = 615.0
-margin_bottom = 59.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/MarginContainer2/HBoxContainer"]
-margin_top = 5.0
-margin_right = 351.0
-margin_bottom = 54.0
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = ExtResource( 3 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_necc8")
+theme_override_font_sizes/font_size = 40
 text = "Enter your name:"
 
 [node name="NameEdit" type="LineEdit" parent="CenterContainer/MarginContainer2/HBoxContainer"]
-margin_left = 355.0
-margin_right = 590.0
-margin_bottom = 59.0
+layout_mode = 2
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("2_necc8")
+theme_override_font_sizes/font_size = 40
 max_length = 8
 context_menu_enabled = false
 shortcut_keys_enabled = false
 selecting_enabled = false
 caret_blink = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer"]
-margin_top = 420.0
-margin_right = 640.0
-margin_bottom = 475.0
+layout_mode = 2
 
 [node name="Button" type="Button" parent="CenterContainer/CenterContainer"]
-margin_left = 284.0
-margin_right = 355.0
-margin_bottom = 55.0
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = ExtResource( 3 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_necc8")
+theme_override_font_sizes/font_size = 40
 text = "OK"
 flat = true
 
-[node name="Tween" type="Tween" parent="."]
-
-[node name="Tween2" type="Tween" parent="."]
-
 [connection signal="pressed" from="CenterContainer/CenterContainer/Button" to="." method="_on_Button_pressed"]
-[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

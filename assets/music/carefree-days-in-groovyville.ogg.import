@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/carefree-days-in-groovyville.ogg-e080defa9439b0df242b8b355e36a1f6.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctxt7lsvmar1n"
+path="res://.godot/imported/carefree-days-in-groovyville.ogg-e080defa9439b0df242b8b355e36a1f6.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/music/carefree-days-in-groovyville.ogg"
-dest_files=[ "res://.import/carefree-days-in-groovyville.ogg-e080defa9439b0df242b8b355e36a1f6.oggstr" ]
+dest_files=["res://.godot/imported/carefree-days-in-groovyville.ogg-e080defa9439b0df242b8b355e36a1f6.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

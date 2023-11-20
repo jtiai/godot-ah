@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/pick.wav-b17b8c29fa0741b8559963be492621af.sample"
+type="AudioStreamWAV"
+uid="uid://dx22mxoruvsrq"
+path="res://.godot/imported/pick.wav-b17b8c29fa0741b8559963be492621af.sample"
 
 [deps]
 
 source_file="res://assets/sfx/pick.wav"
-dest_files=[ "res://.import/pick.wav-b17b8c29fa0741b8559963be492621af.sample" ]
+dest_files=["res://.godot/imported/pick.wav-b17b8c29fa0741b8559963be492621af.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

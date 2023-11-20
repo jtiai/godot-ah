@@ -1,79 +1,72 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://4da7c2ywihd4"]
 
-[ext_resource path="res://assets/fonts/size40.tres" type="DynamicFont" id=1]
-[ext_resource path="res://assets/fonts/size150.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/fonts/size18.tres" type="DynamicFont" id=3]
-[ext_resource path="res://scripts/titlescreen.gd" type="Script" id=4]
+[ext_resource type="FontFile" uid="uid://ddtl24sbjajrt" path="res://assets/fonts/notosanshk-black.otf" id="2_boa5a"]
+[ext_resource type="Script" path="res://scripts/titlescreen.gd" id="4"]
 
 [node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -0.560608
-margin_bottom = -0.560608
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CenterContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_right = 640.0
-margin_bottom = 193.0
+layout_mode = 2
+size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
-margin_right = 640.0
-margin_bottom = 193.0
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = ExtResource( 2 )
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0.74902, 0, 1)
+theme_override_fonts/font = ExtResource("2_boa5a")
+theme_override_font_sizes/font_size = 120
 text = "ÄH!"
-align = 1
-valign = 1
+horizontal_alignment = 1
 
 [node name="CenterContainer3" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 197.0
-margin_right = 640.0
-margin_bottom = 298.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer3"]
-margin_right = 640.0
-margin_bottom = 101.0
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.74902, 0, 1)
+theme_override_fonts/font = ExtResource("2_boa5a")
+theme_override_font_sizes/font_size = 32
 text = "CLICK MOUSE BUTTON 
 TO BEGIN"
-align = 1
+horizontal_alignment = 1
 
 [node name="CenterContainer2" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 302.0
-margin_right = 640.0
-margin_bottom = 479.0
-custom_constants/margin_left = 50
+layout_mode = 2
+theme_override_constants/margin_left = 64
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer2"]
-margin_left = 50.0
-margin_right = 640.0
-margin_bottom = 177.0
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = ExtResource( 3 )
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.74902, 0, 1)
+theme_override_fonts/font = ExtResource("2_boa5a")
+theme_override_font_sizes/font_size = 18
 text = "You are the green worm trying to catch the appearing
 bubbles by clicking towards them with your mouse.
+
 The faster you click, the faster you move.
-Try to be quick, you have only 30 seconds.
+Move fast, you have only 30 seconds.
 
 Press ESC to quit."
 
 [node name="Fader" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 1, 1, 1, 0.152941 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tween" type="Tween" parent="."]
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.152941)

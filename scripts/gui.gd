@@ -1,7 +1,7 @@
 extends Control
 
 
-onready var speedometer = $VBoxContainer/MarginContainer/SpeedoMeter
+@onready var speedometer = $MarginContainer/VBoxContainer/MarginContainer/SpeedoMeter
 
 
 func _ready():
